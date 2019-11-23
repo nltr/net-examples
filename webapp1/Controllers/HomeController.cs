@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using webapp1.Models;
+using Newtonsoft.Json;
+
 
 namespace webapp1.Controllers
 {
@@ -23,9 +25,17 @@ namespace webapp1.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public string Privacy()
+            
         {
-            return View();
+            var user = new User
+            {
+                FullName = "Nishant",
+                Password = "passowrd spelt worng",
+                UserName = "nltr"
+
+            };
+            return JsonConvert.SerializeObject(user, Formatting.Indented);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
