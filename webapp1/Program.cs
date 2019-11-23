@@ -20,7 +20,11 @@ namespace webapp1
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseStartup<MyStartup>();
+                webBuilder.UseStartup<Startup>().
+                ConfigureLogging(logging=>{
+                    logging.ClearProviders();
+                    logging.AddConsole();
+                });
                 });
     }
 }

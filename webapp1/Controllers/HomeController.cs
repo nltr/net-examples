@@ -35,7 +35,9 @@ namespace webapp1.Controllers
                 UserName = "nltr"
 
             };
-            return JsonConvert.SerializeObject(user, Formatting.Indented);
+            string json= JsonConvert.SerializeObject(user, Formatting.Indented);
+            _logger.LogInformation(json);
+            return json;
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
