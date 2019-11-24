@@ -40,6 +40,7 @@ namespace webapp1
                 app.UseHsts();
             }
             app.UseHttpsRedirection();
+            app.UseStatusCodePages("text/plain", "Status code {0}");
             app.UseStaticFiles();
 
             app.UseRouting();

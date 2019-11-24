@@ -37,6 +37,8 @@ namespace webapp1.Controllers
             };
             string json= JsonConvert.SerializeObject(user, Formatting.Indented);
             _logger.LogInformation(json);
+            if(true)
+                throw new Exception("user not found");
             return json;
         }
 
